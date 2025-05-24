@@ -56,19 +56,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_01_log_c363 IMPLEMENTATION.
+CLASS ZCL_01_LOG_C363 IMPLEMENTATION.
 
-  METHOD set_attr1.
-
-    attr1 = iv_attr.
-
-  ENDMETHOD.
-
-  METHOD set_attr2.
-
-    attr2 = iv_attr.
-
-  ENDMETHOD.
 
   METHOD get_attr1.
 
@@ -77,11 +66,13 @@ CLASS zcl_01_log_c363 IMPLEMENTATION.
 
   ENDMETHOD.
 
+
   METHOD get_attr2.
 
     ev_attr = attr2.
 
   ENDMETHOD.
+
 
   METHOD get_flight.
 
@@ -94,4 +85,17 @@ CLASS zcl_01_log_c363 IMPLEMENTATION.
 
   ENDMETHOD.
 
+
+  METHOD set_attr1.
+
+    attr1 = iv_attr.
+
+  ENDMETHOD.
+
+
+  METHOD set_attr2.
+
+    attr2 = iv_attr.
+
+  ENDMETHOD.
 ENDCLASS.

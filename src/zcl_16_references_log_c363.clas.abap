@@ -1,0 +1,15 @@
+CLASS zcl_16_references_log_c363 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    data: attr1 type string.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_16_references_log_c363 IMPLEMENTATION.
+ENDCLASS.
