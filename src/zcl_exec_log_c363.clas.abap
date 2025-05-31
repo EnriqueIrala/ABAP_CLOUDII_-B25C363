@@ -157,28 +157,93 @@ CLASS zcl_exec_log_c363 IMPLEMENTATION.
 *    CALL METHOD lo_object->(lv_method) RECEIVING rv_category = lv_category.
 *
 *    out->write( lv_category ).
-
+*
 * EVENT
-    DATA(lo_timer) = NEW zcl_18_timer_log_c363( ).
-    DATA(lo_conexion) = NEW zcl_19_conexion_log_c363( ).
+*    DATA(lo_timer) = NEW zcl_18_timer_log_c363( ).
+*    DATA(lo_conexion) = NEW zcl_19_conexion_log_c363( ).
+*
+*    SET HANDLER lo_conexion->on_time_out FOR lo_timer.
+*
+*    DO.
+*
+*      WAIT UP TO 1 SECONDS.
+*      lo_timer->increment_counter( 1 ).
+*
+*      IF lo_conexion->hour IS INITIAL.
+*        out->write( |Event not yet executed:{ cl_abap_context_info=>get_system_time( ) }| ).
+*      ELSE.
+*        out->write( |Event was raised at:{ lo_conexion->hour }-{ lo_conexion->sender_user }| ).
+*        EXIT.
+*      ENDIF.
+*
+*    ENDDO.
+*
+* Event from Interface
+*    DATA(lo_bank) = NEW zcl_20_bank_log_c363( ).
+*    DATA(lo_client) = NEW zcl_21_client_log_c363( ).
+*
+*    SET HANDLER lo_client->on_new_transfer FOR lo_bank ACTIVATION abap_true.
+*
+*    DO 5 TIMES.
+*      WAIT UP TO 1 SECONDS.
+*      out->write( lo_bank->create_notification( ) ).
+*      out->write( lo_client->notification ).
+*      IF sy-index = 3.
+*        SET HANDLER lo_client->on_new_transfer FOR lo_bank ACTIVATION abap_false.
+*        lo_client->notification = 'No handler for event new transfer'.
+*      ENDIF.
+*    ENDDO.
+*
+*    TRY.
+*        DATA(lv_result) = 100 / 0.
+*      CATCH cx_root INTO DATA(lx_excep).
+*        out->write( lx_excep->get_text( ) ).
+*    ENDTRY.
+*
+*---> Exceptions
+*Clase padre CX_ROOT
+*   CX_NO_CHECK
+*   CX_DYNAMIC_CHECK
+*   CX_STATIC_CHECK
+*
+*    DATA: lv_num1 TYPE i VALUE 100,
+*          lv_num2 TYPE i.
+*    DATA(lo_manage) = NEW zcl_23_manage_res_log_c363( ).
+*
+*    TRY.
+*
+*        DATA(lv_result) = lv_num1 / lv_num2.
+*
+*        lo_manage->check_user( sy-uname ).
+*
+*      CATCH zcx_01_auth_log_c363 INTO DATA(lx_auth).
+*        "CATCH cx_root INTO DATA(lx_auth).
+*        out->write( lx_auth->get_text( ) ).
+*
+*      CATCH cx_sy_zerodivide INTO DATA(lx_excep).
+*        out->write( lx_excep->get_text( ) ).
+*
+*        lv_num2 = 20.
+*
+*        RETRY.
+*
+*    ENDTRY.
+*
+*    out->write( lv_result ).
 
-    SET HANDLER lo_conexion->on_time_out FOR lo_timer.
+* Singleton Pattern
 
-    DO.
+  data: lo_singleton1 type ref to zcl_24_singleton_log_c363,
+        lo_singleton2 type ref to zcl_24_singleton_log_c363.
 
-      WAIT UP TO 1 SECONDS.
-      lo_timer->increment_counter( 1 ).
+        lo_singleton1 = zcl_24_singleton_log_c363=>get_instance( ).
 
-      IF lo_conexion->hour IS INITIAL.
-        out->write( |Event not yet executed:{ cl_abap_context_info=>get_system_time( ) }| ).
-      ELSE.
-        out->write( |Event was raised at:{ lo_conexion->hour }| ).
-        EXIT.
-      ENDIF.
+        wait up to 2 seconds.
 
-    ENDDO.
+        lo_singleton2 = zcl_24_singleton_log_c363=>get_instance( ).
 
-
+        out->write( lo_singleton1->time ).
+        out->write( lo_singleton2->time ).
 
 
 

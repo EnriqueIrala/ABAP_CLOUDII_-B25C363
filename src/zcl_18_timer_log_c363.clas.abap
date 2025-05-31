@@ -5,11 +5,15 @@ CLASS zcl_18_timer_log_c363 DEFINITION
 
   PUBLIC SECTION.
 
+    DATA: user TYPE string.
+
     EVENTS time_out EXPORTING VALUE(ev_hour) TYPE zsyst_uzeit.
 
     METHODS:
       increment_counter IMPORTING iv_counter TYPE i,
-      check_limit.
+      check_limit,
+
+      constructor.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -33,6 +37,10 @@ CLASS zcl_18_timer_log_c363 IMPLEMENTATION.
     me->counter += iv_counter.  " counter = counter + iv_counter.
     me->check_limit( ).
 
+  ENDMETHOD.
+
+  METHOD constructor.
+    me->user = sy-uname.
   ENDMETHOD.
 
 ENDCLASS.
