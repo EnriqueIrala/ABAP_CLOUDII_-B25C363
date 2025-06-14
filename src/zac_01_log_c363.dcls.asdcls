@@ -1,0 +1,20 @@
+@EndUserText.label: 'Acess Control - Literal'
+@MappingRole: true
+define role ZAC_01_LOG_C363 {
+    grant
+        select
+            on
+                zcds_01_log_c363
+                    where
+                        CountryCode = 'ES';
+                                           
+    grant
+        select
+            on
+                zcds_02_log_c363
+                    where
+                        Status = 'N';
+                        
+                        
+                        
+}
