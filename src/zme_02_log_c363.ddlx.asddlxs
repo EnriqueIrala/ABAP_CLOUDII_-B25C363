@@ -1,0 +1,31 @@
+@Metadata.layer: #LOCALIZATION
+annotate entity zcds_09_log_c363 with
+{
+  @UI.dataFieldDefault: [{ importance: #HIGH }]
+  @UI.lineItem: [{ position:  30 }]
+  @EndUserText.label: 'Customer ID'
+  CustomerId;
+}
+
+
+//*******************************************************
+//
+//annotate entity zcds_09_log_c363 with
+//  parameters
+//    @EndUserText.label: 'Postal Code'
+//    pPostalCode
+//    
+//{
+//   @UI.dataFieldDefault: [{ importance: #HIGH }]
+//   @UI.lineItem: [{ position:  30, 
+//                     type: #FOR_ACTION, dataAction: 'sendInvoiceToCustomer' }] }]
+//   @EndUserText.label: 'Customer ID'                  
+//   CustomerId;
+//   
+//  @UI.dataFieldDefault: [{ importance: #MEDIUM }]
+//  @UI.lineItem: [{ position:  20 }]
+//  FirstName;
+//
+//
+//
+//}    

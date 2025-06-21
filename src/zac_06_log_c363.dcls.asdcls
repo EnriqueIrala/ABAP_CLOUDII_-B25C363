@@ -1,0 +1,12 @@
+@EndUserText.label: 'Restricted access'
+@MappingRole: true
+define role ZAC_06_LOG_C363 {
+    grant
+        select
+            on
+                zcds_05_log_c363
+//                where TravelId = '';
+                    where
+                        false;
+                        
+}

@@ -256,24 +256,40 @@ CLASS zcl_exec_log_c363 IMPLEMENTATION.
 *          out->write( lo_shape->draw_figure( ) ).
 
 * Model - View - Controller
-    DATA: lv_name TYPE string VALUE 'Juan Lopez',
-          lv_role TYPE string VALUE 'ABAP Developer'.
+*    DATA: lv_name TYPE string VALUE 'Juan Lopez',
+*          lv_role TYPE string VALUE 'ABAP Developer'.
+*
+*    DATA(lo_model) = NEW zcl_34_model_lgl_c367(
+*      iv_name = lv_name
+*      iv_role = lv_role ).
+*
+*    DATA(lo_view) = NEW zcl_35_view_lgl_c367( ).
+*
+*    DATA(lo_controller) = NEW zcl_36_controller_lgl_c367( ).
+*
+*    lo_controller->set_model( lo_model ).
+*    lo_controller->set_view( lo_view ).
+*
+*    lo_controller->get_view( )->display_employee(
+*      iv_name = lo_model->get_name( )
+*      iv_role = lo_model->get_role( )
+*      io_out  = out ).
 
-    DATA(lo_model) = NEW zcl_34_model_lgl_c367(
-      iv_name = lv_name
-      iv_role = lv_role ).
-
-    DATA(lo_view) = NEW zcl_35_view_lgl_c367( ).
-
-    DATA(lo_controller) = NEW zcl_36_controller_lgl_c367( ).
-
-    lo_controller->set_model( lo_model ).
-    lo_controller->set_view( lo_view ).
-
-    lo_controller->get_view( )->display_employee(
-      iv_name = lo_model->get_name( )
-      iv_role = lo_model->get_role( )
-      io_out  = out ).
+*  cl_dd_ddl_annotation_service=>get_annos(
+*    EXPORTING
+*      entityname         = 'ZCDS_09_LOG_C363'
+**      variant            = ''
+**      language           = SY-LANGU
+**      extend             = abap_false
+*      metadata_extension = abap_true
+**      translation        = abap_true
+**      null_values        = abap_false
+*    IMPORTING
+**      entity_annos       =
+*      element_annos      = data(lt_element_annos)
+**      parameter_annos    =
+**      annos_tstmp        =
+*  ).
 
 
 
