@@ -33,7 +33,10 @@ define root view entity ztravel_c_c363
       @Semantics.amount.currencyCode: 'CurrencyCode'
       TotalPrice,
       
+      //SADL - Service Adaptation Description Languaje
+      @EndUserText.label: 'VAT Included'
       @Semantics.amount.currencyCode: 'CurrencyCode'
+      @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_VIRT_ELEM_C363'
       virtual PriceWithVAT: /dmo/total_price,
       
       CurrencyCode,
