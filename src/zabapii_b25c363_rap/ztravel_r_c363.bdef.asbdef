@@ -71,7 +71,7 @@ authorization master ( global, instance )
   mapping for ztravel_c363_a
       {
         TravelUUID         = travel_uuid;
-        TravelID         =   travel_id;
+        TravelID           = travel_id;
         AgencyID           = agency_id;
         CustomerID         = customer_id;
         BeginDate          = begin_date;
