@@ -294,7 +294,9 @@ CLASS zcl_exec_log_c363 IMPLEMENTATION.
 
 
 
-
+ SELECT *
+ FROM /dmo/customer
+    INTO TABLE @DATA(lt_mara).
 
 
 
